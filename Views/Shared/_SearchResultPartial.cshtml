@@ -1,0 +1,40 @@
+@model Content?
+
+@if (Model != null)
+{
+    <a asp-controller="ContentInfo" asp-action="Index" asp-route-id="@Model.Id">
+        <div class="row search-results">
+            <div class="col-2 search-thumbnail-container">
+                <img src="@Model.Picture" alt="Thumbnail" class="search-thumbnail">
+            </div>
+            <div class="col-10 search-title scrollbar">
+                <h5>@Model.Title</h5>
+                @if (Model.IsSeries == true)
+                {
+                    <p>Series</p>
+                }
+                else
+                {
+                    <p>Movie</p>
+                }
+            </div>
+        </div>
+    </a>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Index" asp-route-id="@ViewBag.user.Id">
+        <div class="row search-results">
+            <div class="col-2 search-thumbnail-container">
+                <img src="@(Url.Action("GetImage","Account", new {userId = ViewBag.user.Id}))" 
+                     onerror="this.src='/Assets/standardPFP.jpg' "
+                     alt="profile picture"
+                     class="search-thumbnail rounded-circle pfp">
+            </div>
+            <div class="col-10 search-title scrollbar">
+                <h5>@ViewBag.user.NickName</h5>
+                    <p>User</p>
+                </div>
+        </div>
+    </a>
+}

@@ -1,0 +1,103 @@
+.font-blue{
+    color: #00A6FB;
+}
+
+.paddingLogin {
+    padding-left: 20px;
+}
+
+.menucolor{
+    background-color: #051923;
+}
+
+.mainPage {
+    width: auto;
+    height: 2000px;
+    margin: 20px;
+    background-color: black;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #071f2c;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #515151;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #00A6FB;
+
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #003554;
+    color: #00A6FB;
+    padding: 6px 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 1px;
+}
+
+.openbtn:hover {
+    color: #051923;
+    background-color: #00A6FB;
+}
+
+.main {
+    transition: margin-left .5s;
+    padding: 2px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* Caption text */
+.text {
+    color: white;
+    font-size: 20px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-family: Arial;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: #00A6FB;
+}
+
+.img {
+    margin-left: 90px;
+    flex-wrap: wrap;
+    height: 50px;
+    width: auto;
+}

@@ -1,0 +1,109 @@
+﻿@model List<string>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> Um
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<partial name="_SearchPartial"/>
+
+<!-- code for the movies section -->
+<center>
+        <div class="HomeViewSection">
+            <a class="section_title" asp-area="" asp-controller="Content" asp-action="Index" asp-route-IsSeries="false" id="moviesButton" >Movies</a>
+            <div class="image-frame">
+                <div class="image-container">
+                    @foreach (var movieContent in ViewBag.MovieContents) 
+                    {
+                        <!-- lists out all the movie picture -->
+                        <li class="d-flex align-items-center">
+                            <a asp-controller="ContentInfo" asp-action="Index" asp-route-id="@movieContent.Id">
+                                <img class="image" src="@movieContent.Picture" alt="Movies Picture">
+                            </a>
+                        </li>
+                    }
+                </div>
+                <div class="prev-button" data-contents="@ViewBag.MovieContents.Count">&lt;</div>
+                <div class="next-button" data-contents="@ViewBag.MovieContents.Count">&gt;</div>
+            </div>
+        </div>
+</center>
+
+<!-- code for the series section -->
+<center>
+    <div class="HomeViewSection">
+        <a class="section_title" asp-area="" asp-controller="Content" asp-action="Index" asp-route-IsSeries="true" id="seriesButton" >Series</a>
+        <div class="image-frame">
+            <div class="image-container">
+                @foreach (var seriesContent in ViewBag.SeriesContents)
+                {
+                    <!-- lists out all the series picture -->
+                    <li class="d-flex align-items-center">
+                        <a asp-controller="ContentInfo" asp-action="Index" asp-route-id="@seriesContent.Id">
+                            <img class="image" src="@seriesContent.Picture" alt="Series Picture">
+                        </a>
+                    </li>
+                }
+            </div>
+            <div class="prev-button" data-contents="@ViewBag.SeriesContents.Count">&lt;</div>
+            <div class="next-button" data-contents="@ViewBag.SeriesContents.Count">&gt;</div>
+        </div>
+    </div>
+</center>
+
+<!-- code for the review section -->
+
+    <div class="HomeViewSection2">
+        <a class="section_title" asp-controller="reviews" asp-action="Index">Reviews</a>
+        <div class="review-frame">
+            <div class="review-container image-container">
+                 @foreach (var reviews in ViewBag.Reviews)
+                        {
+                        <div id="Review">
+                          <div id="HeaderReview">
+                            <div class="containerReview">
+                              <div class="itemReview pt-3">
+                                <img class="rounded-circle" src="@(Url.Action("GetImage", "Account", new {userid = reviews.ApplicationUser.Id}))" onerror="this.src='/Assets/standardPFP.jpg'" alt="Rounded Image" style="width: 120px; height: 120px;">
+                              </div>
+                              <div class="itemReview pt-2">
+                                <ul class="list-unstyled">
+                                  <li class="font-blue h3">@reviews.ApplicationUser.NickName</li>
+                                  <li class="font-blue">@reviews.Content.Title</li>
+                                  <li class="font-blue ">@reviews.Time;</li>
+                                </ul>
+                              </div>
+                              
+                              <div class="itemRateReview2 itemReview pr-1">
+                                @for (int i = 1; i <= 5; i++)
+                                        {
+                                            <img class="BB" width="20" height="20" src="~/Assets/bluberi.png" style="opacity: @(i <= reviews.Score ? 1 : 0.5)">
+                                        }
+                                <img class="pt-1 pr-3" height="120" width="80" src="@reviews.Content.Picture" alt="Series 3">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="reviewBox">
+                            @if (reviews.ApplicationUserId == Um.GetUserId(User))
+                                                              {
+                                                                  <!-- Display a delete button or cross if the user owns the review -->
+                                                                  <a href="@Url.Action("DeleteReview", "reviews", new { reviewId = reviews.Id })">
+                                                                      <img src="~/Assets/deleteimg.png" alt="Delete" style="width: 20px; height: 20px;" />
+                                                                  </a>
+                                                              }
+                            <div class="preserve-whitespace font-blue reviewText">@reviews.Text</div>
+                          </div>
+                        </div>
+                        }
+            </div>
+            <div class="prev-button" data-contents="@(ViewBag.Reviews.Count * 5)">&lt;</div>
+            <div class="next-button" data-contents="@(ViewBag.Reviews.Count * 5)">&gt;</div>
+        </div>
+    </div>
+
+<script>
+    window.onload = () => {
+        ScrollButtons("HomeViewSection");
+        ScrollButtons("HomeViewSection2");
+    };
+</script>

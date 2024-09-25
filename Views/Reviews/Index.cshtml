@@ -1,0 +1,64 @@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> Um
+@model List<YouWeMovie.Models.Review>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<partial name="_SearchPartial"/>
+
+            
+
+<div class="ReviewsViewSection">
+    <a class="section_title">Reviews</a>
+    <div class="reviews-frame">
+      <center>
+        <form method="get">
+          <select id="filterSelect" class="filter-select filter-type mt-3">
+            <option value="Filter">Filter</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+        </form>
+      </center>
+        @foreach (var reviews in Model)
+        {<center>
+        <div id="Review2">
+          <div id="HeaderReview">
+            <div class="containerReview">
+              <div class="itemReview pt-3">
+                <img class="rounded-circle" src="@(Url.Action("GetImage", "Account", new {userid = reviews.ApplicationUser.Id}))" onerror="this.src='/Assets/standardPFP.jpg'" alt="Rounded Image" style="width: 120px; height: 120px;">
+              </div>
+              <div class="itemReview pt-2">
+                <ul class="list-unstyled">
+                  <li class="font-blue h3">@reviews.ApplicationUser.NickName</li>
+                  <li class="font-blue">@reviews.Content.Title</li>
+                  <li class="font-blue ">@reviews.Time;</li>
+                </ul>
+              </div>
+              
+              <div class="itemRateReview itemReview pr-1">
+                @for (int i = 1; i <= 5; i++)
+                        {
+                            <img class="BB" width="20" height="20" src="~/Assets/bluberi.png" style="opacity: @(i <= reviews.Score ? 1 : 0.5)">
+                        }
+                <img class="pt-1 pr-3" height="120" width="80" src="@reviews.Content.Picture" alt="Series 3">
+              </div>
+            </div>
+          </div>
+          <div class="reviewBox2">
+            @if (reviews.ApplicationUserId == Um.GetUserId(User))
+                                              {
+                                                  <!-- Display a delete button or cross if the user owns the review -->
+                                                  <a href="@Url.Action("DeleteReview", "Reviews", new { reviewId = reviews.Id })">
+                                                      <img src="~/Assets/deleteimg.png" alt="Delete" style="width: 20px; height: 20px;" />
+                                                  </a>
+                                              }
+            <div class="preserve-whitespace font-blue reviewText">@reviews.Text</div>
+          </div>
+        </div>
+        </center>
+        }
+    </div>
+</div>

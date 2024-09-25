@@ -1,0 +1,51 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<!--  this connect to the login.css to style how it should looks like the Log in page-->   
+
+<link rel="stylesheet" href="~/css/login.css">
+
+<div class="Login-Page-Container">
+    <div class="Login-Container">
+        <div class="Login-Box">
+            <form class="Form-Signin" id="account" method="post">
+                <!-- this is self Log in -->
+
+                <h1 class="h3 mb-3 font-weight-normal login-header">Log In</h1>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <!-- this is for the email for the log in page-->
+                <div class="Form-Group">
+                    <a>Email </a>
+                    <input asp-for="Input.Email" class="form-control email-input" required autofocus>
+                </div>
+                <!-- this is  for the password on the log in page  -->
+                <div class="Form-Group">
+                    <a>Password</a>
+                    <input asp-for="Input.Password" class="form-control password-input" required>
+                </div>
+                <!-- This is link from the log in page, if some want log in with out register and poeple can se the Register here and send to the registretion page -->
+                <div class="Form-Group register-text">
+                    <p>Not Registered? <a href="~/Identity/Account/Register">Register Here</a></p>
+                </div>
+                <!-- after write the email and the password poeple can press the log in to go inside -->
+                
+
+                <button class="btn btn-lg btn-primary btn-block mx-auto btn-signin" type="submit">Log In</button>
+
+
+
+
+            </form>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts 
+{
+    <partial name="_ValidationScriptsPartial" />
+}

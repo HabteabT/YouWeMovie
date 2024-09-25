@@ -1,0 +1,40 @@
+﻿.Manage1 {
+    Display: block;
+    Color: #003553;
+    Font-Size: 1.4em;
+    Margin-Bottom: 25px;
+    Text-Align: left;
+    Width: 100%;
+}
+
+.Manage2 {
+    Padding: 10px;
+    Background-Color: #071F2C;
+    Height: 600px;
+    Width:600px;
+}
+
+.Manage3 {
+    Background-Color: #051823;
+    Width: 50%;
+    Height: 500px;
+    Float: left;
+    Box-Sizing: border-box;
+    Padding: 20px;
+}
+
+.Manage4 {
+    Background-Color: #081d26;
+    Width: 50%;
+    Height: 500px;
+    Float: left;
+    Box-Sizing: border-box;
+    Padding-Left: 30px;
+}
+
+hr {
+    Margin-Top: 0;
+    Margin-Bottom: 10px;
+    Border: 0;
+    Border-Top: 1px solid #003553;
+}

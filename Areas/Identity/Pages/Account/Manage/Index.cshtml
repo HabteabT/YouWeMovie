@@ -1,0 +1,39 @@
+﻿@page
+@model YouWeMovie.Areas.Identity.Pages.Account.Manage.IndexModel
+
+@{
+    //ViewData["Title"] = "Profile";
+}
+
+
+<link rel="stylesheet" href="~/css/Index.css">
+<!-- the plan her is, if someone want to change the nam, they can change it,
+and if they want to enter the phone number as well they have opportunity to enter their phone number-->
+<h3>@ViewData["Title"]</h3>
+<center>
+    <partial name="_StatusMessage" for="StatusMessage"/>
+    <div class="Index">
+        <div class="profile-image-container">
+            <form id="profile-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="NickName-container">
+                    <label for="NickName" class="NickName-F">NickName</label>
+                    <input id="NickName" type="text" asp-for="Input.NickName" class="NickName-control"/>
+                    <span asp-validation-for="Input.NickName" class="text-danger"></span>
+                </div>
+                <div class="Phone-container">
+                    <label for="PhoneNumber" class="Phone-label">Phone number</label>
+                    <input id="PhoneNumber" asp-for="Input.PhoneNumber" class="Phone-control"/>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+
+    </div>
+</center>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

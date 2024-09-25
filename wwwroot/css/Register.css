@@ -1,0 +1,138 @@
+﻿/* Basic Reset: Resetting box model, margin, and padding for all elements */
+* {
+    Box-sizing: border-box;
+    Margin: 0;
+    Padding: 0;
+}
+
+/* Styling for the main heading */
+h1 {
+    Color: white; /* pute white colore on the text for better visiblity */
+}
+
+/* Styl for the main container */
+.container {
+    Display: flex;
+    Flex-Direction: row;
+    Align-Items: stretch;
+    Justify-Content: center;
+    Padding: 20px;
+    Max-Width: 1200px;
+    Margin: 0 auto;
+}
+
+/* Styl for the picture upload section */
+.picture-upload {
+    Text-Align: center;
+    Padding: 20px;
+    Width: 300px;
+    Background-Color: #051923;
+    /* Add a shadow for depth */
+    Box-Shadow: 0 0 10px Rgba(0, 0, 0, 0.1);
+    /* Adjust the layout and appearance */
+    Display: flex;
+    Flex-Direction: column;
+    Align-Items: flex-start;
+}
+
+/* Styling for the circular image preview */
+
+.image-preview-circle {
+    /*  The width and height decide the size of the circle */
+    width: 260px; 
+    height: 260px; 
+    border-radius: 50%; 
+    background-color: transparent; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    position: relative; 
+}
+/* styl how the image shape should be looks like*/ 
+.circular-image {
+    Width: 100%; 
+    Height: 100%; 
+    Border-Radius: 50%; 
+    Object-Fit: cover; 
+    Position: absolute; 
+    Top: 0;
+    Left: 0;
+}
+
+/* Styl for the profile image inside the circle ..*/
+.profile-image {
+    /* be sure the image covers the circle with out distortion */
+    Max-Width: 100%;
+    Max-Height: 100%;
+    Width: auto;
+    Height: auto;
+    /* make it in the center for the image */
+    Display: block;
+    Margin: auto;
+    Object-fit: cover;
+    /* Make the image circular */
+    Border-radius: 50%;
+}
+
+/* Styl for the image upload label */
+.upload-image-label {
+    Margin-top: auto;
+}
+
+/* Styl for the registration form */
+.registration-form {
+    /* Sett up the layout for the form */
+    Display: flex;
+    Flex-direction: column;
+    Justify-content: space-between;
+    Padding: 20px;
+    Background-Color: #071F2C;
+    /* Add a shadow for depth */
+    Box-Shadow: 0 0 10px Rgba(6, 220, 213, 0.1);
+    Width: 500px;
+    Height: 700px;
+    Margin-Left: 20px;
+}
+
+/* Styl for form groups within the registration form */
+.registration-form .Form-Group {
+    Margin-bottom: 20px;
+}
+
+/* Styl for labels within the registration form */
+.registration-form label {
+    Display: block;
+    Margin-bottom: 5px;
+    Color: white; /* putting text color to white for better visibility */
+}
+
+/* Resetting default margin for form inputs */
+.registration-form input {
+    Margin: 0;
+}
+
+/* Media query for small screens/mobile devices */
+@media (Max-Width: 768px) {
+    /* Adjust the width and margins for smaller screens */
+    .registration-form {
+        Width: 90%;
+        Margin-left: 0;
+        Margin-bottom: 20px;
+    }
+
+    /* Adjust the layout for smaller screens */
+    .container {
+        flex-direction: column;
+        Align-items: center;
+    }
+
+    /* Adjust the width and margins for smaller screens */
+    .picture-upload, .registration-form {
+        Flex-basis: auto;
+        Width: 90%;
+        Margin-right: 0;
+        Margin-left: 0;
+        Margin-bottom: 20px;
+    }
+}

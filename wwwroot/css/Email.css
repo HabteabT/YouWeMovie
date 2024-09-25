@@ -1,0 +1,63 @@
+﻿/* THE styles for the Row-Email class */
+.Row-Email {
+    Background-Color: #071F2C; 
+    Color: #FFFFFF; 
+    Padding: 25px; 
+}
+
+
+.whole {
+    Background-Color: #051923; 
+    Color: #006494;
+    Width: 220px;
+    Padding: 15px; 
+}
+
+
+.Email1-group {
+    Background-Color: #FFFFFF; 
+    Color: #FFFFFF; 
+    Padding: 10px; 
+    Margin-Bottom: 15px; 
+}
+.Email-group {
+    /*Background-color: #006494; */
+    Color: #FFFFFF; 
+    Padding: 10px; 
+    Margin-Bottom: 15px; 
+}
+
+
+.New-Email-group {
+   /* Background-color: #006494;  */
+    Color: #FFFFFF;
+    Padding: 10px; 
+    Margin-Bottom: 15px; 
+}
+
+
+.Email1-group label, .Email-group label, .New-Email-group label {
+    Font-Size: 18px; 
+    /*Color: #00A6FB; 
+}
+
+/* InputFieldS Styles */
+.Email1-group input, .Email-group input, .New-Email-group input {
+    Font-Size: 16px; 
+    Color:  #00A6FB;  
+    Background-color: #00A6FB; 
+   /* border: 1px solid #00A6FB;  */
+}
+    
+#change-email-button, #email-verification {
+    Font-Size: 16px; 
+    /*background-color: #00A6FB;  */
+    Color: #FFFFFF; 
+    Padding: 12px 24px; 
+    Border-Radius: 4px; 
+
+/* Validation Message Styles */
+.text-danger {
+    Font-Size: 14px; 
+    Color: #FF0000; 
+}}}

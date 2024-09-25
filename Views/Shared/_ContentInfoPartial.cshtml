@@ -1,0 +1,65 @@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> Um
+@using YouWeMovie.Data
+@inject ApplicationDbContext _context
+@model List<YouWeMovie.Models.Content>
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+<link rel="stylesheet" href="css/Content.css" asp-append-version="true"/>
+<link rel="stylesheet" href="css/Home.css" asp-append-version="true"/>
+@* refererer til jquery, viktig at dette kommer før andre scripts *@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@* går igjennom alle filmene *@
+@foreach (var content in Model)
+{
+    @*Hver film/serie får en egen conteiner*@
+    <div class="row ContentContainer2">
+        <div class="col-4">
+            <a asp-controller="ContentInfo" asp-action="Index" asp-route-id="@content.Id">
+                @*Printer ut posteren til film/serie*@
+                <img src="@Html.DisplayFor(modelItem => content.Picture)" alt="Thumbnail" class="ContentPicture">
+            </a>
+        </div>
+        <div class="col-4 ContentInfo">
+            <a asp-controller="ContentInfo" asp-action="Index" asp-route-id="@content.Id" class="text-decoration-none">
+                @*Printer ut tittelen*@
+                <h5>@Html.DisplayFor(modelItem => content.Title)</h5>
+            </a>
+            @*Printer ut IMDB ratingen*@
+            <p>IMDB rating @Html.DisplayFor(modelItem => content.RatingImdb)</p>
+            @*Printer ut data puplisert i dd MMM yyyy format*@
+            <p>Published: @(content.ReleaseDate.GetValueOrDefault().ToString("dd MMM yyyy"))</p>
+            @*Printer ut handlingsreferat*@
+            <p class="synopsisSection"> @Html.DisplayFor(modelItem => content.Synopsis)</p>
+
+        </div>
+        @*Systemet for å gi rating*@
+        <div class="col-4 ContentRating-add" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+            <div class="col-4" style="padding-left:270px;">
+                <div class="float-end d-flex flex-row">
+                    <img class="BB" width="35" height="35" src="~/Assets/bluberi.png" alt="Image 1" onclick="imageClick(1)">
+                    <img class="BB" width="35" height="35" src="~/Assets/bluberi.png" alt="Image 2" onclick="imageClick(2)">
+                    <img class="BB" width="35" height="35" src="~/Assets/bluberi.png" alt="Image 3" onclick="imageClick(3)">
+                    <img class="BB" width="35" height="35" src="~/Assets/bluberi.png" alt="Image 4" onclick="imageClick(4)">
+                    <img class="BB" width="35" height="35" src="~/Assets/bluberi.png" alt="Image 5" onclick="imageClick(5)">
+                </div>
+            </div>
+            
+            @* To later add a add/remove button to each movie:::::::::::::::::::::::::::::: *@
+            @* <div class="" style=" padding-top: 290px; display: flex; justify-content: center; align-items: end;"> *@
+            @*     $1$ sjekker om brukeren er logget inn #1# *@
+            @*     @if (User.Identity is {IsAuthenticated: true }) *@
+            @*     { *@
+            @*         $1$Setter ut add to lit eller remove from list utifra hva du har trykket på#1# *@
+            @*         <form onsubmit="updateList(event)" asp-controller="ContentInfo" asp-action="AddOrDelete" asp-route-id="@content.Id" method="post"> *@
+            @*             <button type="submit" class="add-to-list-btn"> *@
+            @*                 @(ViewBag.isInList == true ? "Remove from list" : "Add to list") *@
+            @*             </button> *@
+            @*         </form> *@
+            @*     } *@
+            @* </div> *@
+        </div>
+    </div>
+}

@@ -1,0 +1,40 @@
+@model IEnumerable<YouWeMovie.Controllers.AboutUsController>
+
+
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "_Layout";
+}
+
+<partial name="_SearchPartial"/>
+
+<a class="section_title">About us</a>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/css/AboutUs.css" asp-append-version="true"/>
+
+<div class="container mt-5"> 
+    <div class="AboutUsConteiner row">
+        <div class="row"> 
+            <div class="col-md-4"> 
+                <h3>Info:</h3>
+                <p>We are a team of talented web developers making a movie and series forum</p>
+                <p>Team members: Erlend, Sander, Linor, Habteabe, Luka</p>
+                <p>Email: YWMCoperation@gmail.com</p>
+                <p>Phone: 48268644</p>
+            </div>
+            
+            <div class="col-md-4"> 
+                <h3>Find us here:</h3>
+                <p><a href="https://github.com/YMWCorporations" target="_blank"><img class="sosial-media" src="Assets/github.png"></a></p>
+                <p><a href="https://twitter.com/YouWeMovie" target="_blank" ><img class="sosial-media" src="Assets/twitter.png" ></a></p>
+                <p><a href="https://www.instagram.com/ywmcorporations/" target="_blank" ><img class="sosial-media" src="Assets/instagram.png"></a></p>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center"> 
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img class="logo" src="~/Assets/logopng.png"></a> 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿<center>
+    <div class="search-box">
+        <input id="search-field" class="search-input" oninput="searchBar.search()" type="text" placeholder="Search...">
+        <button class="search-button"><img height="16px" width="16px" src="~/Assets/SearchIcon.png"></button>
+        <select id="search-category" class="filter-select" onchange="searchBar.setCategory()">
+            <option value="0">All</option>
+            <option value="1">Movies</option>
+            <option value="2">Series</option>
+            <option value="3">People</option>
+        </select>
+    </div>
+    <div class="slow-extend scrollbar" id="suggestions" style="display: none">
+    </div>
+</center>

@@ -1,0 +1,95 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> Um
+@model IEnumerable<YouWeMovie.Models.Content>
+
+@{
+    ViewBag.Title = "Account";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/Account.css" asp-append-version="true" />
+<div class="container">
+    <div class="picture-upload">
+        <form id="pictureForm" method="post" enctype="multipart/form-data">
+            <div class="movie-group">
+                
+                <div class="UserName">
+                    <p>@ViewBag.NickName</p>
+                </div>
+                <div class="image-preview-circle" id="imagePreviewCircle">
+                    <img src="@(Url.Action("GetImage","Account", new {userId = ViewBag.UserId}))" 
+                         onerror="this.src='/Assets/standardPFP.jpg' "
+                         alt="profile picture"
+                         class="rounded-circle">   
+                </div>
+                <div class="Email">
+                    <p>Email : @ViewBag.UserEmail</p>
+                </div>
+                <div class="Date of Registration">
+                    <p>Date of Registration : @ViewBag.RegistrationDate.ToString("dd MMM yyyy")</p>
+                </div>
+                <div class="Date of Registration">
+                    <p>Age : @ViewBag.Age</p>
+                </div>
+            </div>
+        </form>
+        @if (User.Identity is { IsAuthenticated: true } && ViewBag.UserId == Um.GetUserId(User))
+        {
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-primary">Settings</a>
+        }
+    </div>
+
+    <div class="movies-form" style="background-color: #071F2C;">
+        <form id="moviesForm" method="post">
+
+            <div class="serie-group">
+                
+                <div class="AccountViewSection">
+                    <a class="section_title">Movies</a>
+                    <div class="image-frame">
+                        <div class="image-container">
+                            @foreach (var moviePicture in ViewBag.PersonalMovies)
+                            {
+                                <li class="d-flex align-items-center">
+                                    <a asp-area="" asp-controller="ContentInfo" asp-action="Index" asp-route-id="@moviePicture.Id">
+                                        <img class="image" src="@moviePicture.Picture" alt="Movie Picture">
+                                    </a>
+                                </li>
+                            }
+                        </div>
+                        <div class="prev-button" data-contents="@ViewBag.PersonalMovies.Count">&lt;</div>
+                        <div class="next-button" data-contents="@ViewBag.PersonalMovies.Count">&gt;</div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <div class="AccountViewSection">
+                    <a class="section_title">Series</a>
+                    <div class="image-frame">
+                        <div class="image-container">
+                            @foreach (var seriesPicture in ViewBag.PersonalSeries)
+                            {
+                                <li class="d-flex align-items-center">
+                                    <a asp-area="" asp-controller="ContentInfo" asp-action="Index" asp-route-id="@seriesPicture.Id">
+                                        <img class="image" src="@seriesPicture.Picture" alt="Series Picture">
+                                    </a>
+                                </li>
+                            }
+                        </div>
+                        <div class="prev-button" data-contents="@ViewBag.PersonalSeries.Count">&lt;</div>
+                        <div class="next-button" data-contents="@ViewBag.PersonalSeries.Count">&gt;</div>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+<script >
+    window.onload = () => {
+        ScrollButtons("AccountViewSection");
+    };
+</script>

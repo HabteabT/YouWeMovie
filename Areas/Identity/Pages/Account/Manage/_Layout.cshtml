@@ -1,0 +1,31 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "_Layout.cshtml";
+    }
+}
+<link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true"/>
+
+<div>
+    <div class="Manage1"> 
+        <h1>Manage your account</h1>
+    </div>
+    <h2>Change your account settings</h2>
+    
+    <div class="Manage2">
+        <div class="Manage3">
+            <partial name="_ManageNav"/>
+        </div>
+        <div class="Manage4">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

@@ -1,0 +1,103 @@
+﻿/* login.css */
+
+body, html {
+    Color: #1db60c;
+}
+/* THIS is for the login page container*/
+.Login-Page-Container {
+    Display: flex;
+    Align-items: Center;
+    Justify-content: Center;
+    Height: 100vh;
+}
+/* this is  for the login-container*/
+.Login-Container {
+    Display: flex;
+    Flex-direction: Column;
+    Align-items: Center;
+    margin-Top: -10cm;
+}
+/* here are the color and how it should looks like the login.box*/
+.Login-Box {
+    Background-color: #051923;
+    Padding: 35px;
+    Border-Radius: 0;
+    
+    Width: 901px;
+    Height: 401px;
+    Display: flex;
+    Flex-Direction: Column;
+    Align-Items: Center;
+    Position: Relative;
+}
+/* this style the login header in the toppe will be placed in the topp and the  coloers of that and the line */
+.login-header {
+    Text-Align: Center;
+    Margin-Bottom: 20px;
+    Position: Absolute;
+    top: -41px; 
+    left: -0.2cm; 
+    Text-Decoration: None; 
+    Color: #FFFFFF; 
+    Border-Bottom: 1px solid #FFFFFF;
+}
+/* this is about the register text under the password */
+.Form-Group.register-text {
+    Text-Align: Center; 
+    Color: #FFFFFF; 
+}
+
+.register-text a {
+    Border-Bottom: 1px Solid #FFFFFF; 
+    Text-Decoration: None; 
+    Color: #FFFFFF; 
+}
+
+.Form-Group {
+    Margin-Bottom: 15px;
+}
+
+.email-input,
+/* this for the password the color, and the size */
+.password-input {
+    Background-Color: #FFFFFF;
+    Border: None;
+    Color: #051923;
+    Box-Shadow: #000000;
+    Height: 38px;
+    Padding: 5px 10px;
+    Font-Size: 14px;
+    Width: 100%;
+    Margin-bottom: 15px;
+}
+
+.email-input {
+    Width: 400px;
+    Margin-Bottom: 35px;
+}
+
+.password-input {
+    Width: 400px;
+}
+/* */
+.btn-primary {
+    Background-Color: #051923;
+    Border: black;
+    Height: 38px;
+    Padding: 10px 10px;
+    Font-Size: 16px; 
+    Margin-Top: auto; 
+    Color: #FFFFFF; 
+    Box-Shadow: 0 0 10px #000000; 
+}
+
+
+.btn-signin {
+    Margin-top: 15px;
+    Position: absolute;
+    Right: 400px; 
+}
+
+.login-footer {
+    Margin-Top: 20px;
+}

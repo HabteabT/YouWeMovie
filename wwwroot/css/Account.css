@@ -1,0 +1,130 @@
+﻿p {
+    color: white;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: white; 
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.picture-upload {
+
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+    background-color: #051923;
+    border-radius: 8px 0 0 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.image-preview-circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background-color: transparent;
+    overflow: hidden;
+    border: 1px solid rgba(220, 6, 6, 0.01);
+    align-self: center;
+    margin-bottom: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.upload-image-label {
+    margin-top: auto;
+}
+
+
+.info-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #071F2C;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 0 10px rgba(6, 220, 213, 0.1);
+    width: 500px;
+    height: 700px;
+    margin-left: 20px;
+}
+
+.info-form .form-group {
+    margin-bottom: 20px;
+}
+
+.info-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; 
+}
+
+.info-form input {
+    margin: 0; 
+}
+
+
+@media (max-width: 768px) {
+    .info-form {
+        width: 90%;
+        margin-left: 0;
+        margin-bottom: 20px;
+        margin-right: 90%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .picture-upload, .info-form {
+        flex-basis: auto;
+        width: 90%;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.AccountViewSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center content */
+    justify-content: center; /* Vertically center content */
+    width: 900px; /* Set width to 100% to adapt to viewport */
+    height: 400px; /* Set a percentage of viewport height */
+    text-align: center; /* Horizontally center text inside the section */
+    margin-left: 30px;
+}

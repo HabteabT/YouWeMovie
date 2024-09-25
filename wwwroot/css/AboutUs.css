@@ -1,0 +1,33 @@
+/* For the about view*/
+.AboutUsConteiner {
+    background-color: rgba(7,31,44,1);
+    padding: 20px;
+    border-radius: 8px;
+    color: rgba(0,166,251,1);
+    max-width: 3000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.AboutUsConteiner a:hover {
+    text-decoration: underline;
+}
+.AboutUsConteiner img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.AboutUsConteiner .sosial-media {
+    width: 90px;
+    height: auto;
+    max-width: 200px;
+}
+
+.AboutUsConteiner .logo {
+    width: 200px;
+    height: auto;
+    max-width: 200px;
+}

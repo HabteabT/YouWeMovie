@@ -1,0 +1,44 @@
+
+.NickName-container {
+    Margin-Bottom: 20px; 
+}
+
+.NickName-F {
+    Display: block;
+    Margin-Bottom: 10px;
+}
+
+.NickName-control {
+    Width: 100%;
+    Padding: 10px;
+    Border: 1px solid #FFFFFF;
+    Border-Radius: 4px;
+    Margin-Bottom: 5px; 
+}
+
+
+.Phone-container {
+    Margin-Bottom: 25px;
+}
+
+.Phone-label {
+    Display: block;
+    Margin-Bottom: 10px; 
+}
+
+.Phone-control {
+    Width: 100%;
+    Padding: 10px;
+    Border: 1px solid #FFFFFF;
+    Border-Radius: 4px;
+    Margin-Bottom: 10px; 
+}
+
+
+.btn-primary {
+    Width: 100%;
+    Padding: 5px;
+    Border-Radius: 2px;
+    Font-Size: 18px;
+}
+

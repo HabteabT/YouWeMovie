@@ -1,0 +1,161 @@
+@model YouWeMovie.Models.Content
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<link rel="stylesheet" href="~/css/ContentInfo.css" asp-append-version="true"/>
+<partial name="_SearchPartial"/>
+
+<div class="dialog-overlay">
+    <div class="dialog-box">
+        <div class="review-header">
+        <h3 class="review-title">Your Review</h3>
+        <a class="closeDialog" onclick="closeDialog()">×</a>
+        </div>
+        <br/>
+        <form asp-action="AddReview" asp-controller="Reviews" method="post">
+            <div class="itemReview pr-1">
+                <a>Choose rating:</a>
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <img id="star@(i)" height="35" width="35" class="BB" src="~/Assets/bluberi.png" alt="Image @(i)" onclick="imageClick(@(i))">
+                }
+            </div>
+            <input type="hidden" asp-for="Id" value="@Model.Id"/>
+            <input type="hidden" name="score" id="score" value="0" required/>
+            <textarea placeholder="insert review..." class="user-input" name="text" rows="8" cols="50" required></textarea>
+            <br/>
+            <center><button type="submit" class="review-btn">Publish review</button></center>
+        </form>
+    </div>
+</div>            
+
+
+<script>
+    function imageClick(index) {
+        const stars = document.querySelectorAll('.BB');
+        stars.forEach((star, i) => {
+            star.classList.toggle('active', i < index);
+        });
+        document.getElementById('score').value = index; // Set the score value
+    }
+</script>
+
+<center>
+    <div class="movie-box">
+        <div class="row" id="movieRow">
+            <div class="left-box col-md-4">
+                <div class="content-image"> <img src="@Model.Picture" alt="Movie Image Here"></div>
+                <div class="the-information">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>IMDB Rating: </td>
+                            <td>@(Model.RatingImdb == null ? "N/A" : Model.RatingImdb.ToString())</td>
+                        </tr>
+                        <tr>
+                            <td>YMW Rating: </td>
+                            <td>@(Model.Rating is null or -1.0 ? "N/A" : Model.Rating.ToString())</td>
+                        </tr>
+                        
+                        @* if the content is of type series or movies, it will be specified by the program: *@
+                        <tr> 
+                            @if (Model.IsSeries == true)
+                            {
+                                <td>Series length: </td>
+                            }
+                            else
+                            {
+                                <td>Movie length:</td>
+                            }
+                            <td>@(Model.Length ?? "N/A")</td>
+                        </tr>
+                        
+                        @* if there are more than one director, it will be spedified by our program *@
+                        <tr>
+                            @if (Model.Director != null && Model.Director.Contains(","))
+                            {
+                                <td>Directors:</td>
+                                @*prints each director since there may be more than one:*@
+                                <td>
+                                    <div>
+                                        @foreach (var name in Model.Director.Split(","))
+                                        {
+                                            <tr> <td>@name</td></tr>
+                                        }
+                                    </div>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>Director:</td>
+                                <td>@(Model.Director ?? "N/A")</td>
+                            }
+                        </tr>
+                        <tr>
+                            <td>Release date:</td>
+                            <td>@Model.ReleaseDate.GetValueOrDefault().ToString("dd MMM yyyy")</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @if (User.Identity is {IsAuthenticated: true })
+                {
+                    <form onsubmit="updateList(event)" asp-controller="ContentInfo" asp-action="AddOrDelete" asp-route-id="@Model.Id" method="post">
+                        <button type="submit" class="add-to-list-btn">
+                            @(ViewBag.isInList == true ? "Remove from list" : "Add to list")
+                        </button>
+                    </form>
+                }
+            </div>
+            <div class="right-box col-md-8">
+                <div class="row">
+                    <div class="title"> @(Model.Title ?? "N/A") </div>
+                </div>
+                <div class="row SYNAPSISrow">
+                    <div class="synopsis-container">
+                        <div class="synopsis "> @(Model.Synopsis ?? "N/A") </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="HomeViewSection2">
+        <a class="section_title" asp-controller="Reviews" asp-action="Index">Reviews</a>
+        <div class="review-frame">
+            <div class="review-container image-container">
+                <partial name="_ReviewPartial"/>
+            </div>
+            <div class="prev-button" data-contents="10">&lt;</div>
+            <div class="next-button" data-contents="10">&gt;</div>
+        </div>
+    </div>
+</center>
+
+@if (User.Identity is {IsAuthenticated: true})
+{
+    <center>
+        <button class="review-btn mb-5" onclick="openDialog()">Add review</button>
+    </center>
+}
+else
+{
+    <center>
+    <a class="review-btn mb-5" asp-area="Identity" asp-page="/Account/Login">Login to review</a>
+    </center>
+}
+
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/addButton.js" asp-append-version="true"></script>
+    
+    <script >
+    window.onload = () => {
+            ScrollButtons("HomeViewSection2");
+        };
+    </script>
+}

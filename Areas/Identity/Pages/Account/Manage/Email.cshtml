@@ -1,0 +1,49 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Manage Email";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+<link rel="stylesheet" href="~/css/Email.css">
+<!-- in this part, we can change the email, user get verification on their email to change the email, with out virivication they can not change the  their email. --> 
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+
+ 
+        <form id="email-form" method="post">
+            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+            @if (Model.IsEmailConfirmed)
+            {
+                <div class="Email1-group">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <div class="input-group mb-3">
+                        <input asp-for="Email" class="form-control" disabled />
+                        <div class="input-group-append">
+                            <span class="input-group-text text-success font-weight-bold">✓</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="Email-group">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <input asp-for="Email" class="form-control" disabled />
+                    <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                </div>
+            }
+            
+            <div class="New-Email-group">
+                <label asp-for="Input.NewEmail" class="control-label">New email</label>
+                <input asp-for="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" />
+                <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+            </div>
+            
+            <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-primary mt-3">Change email</button>
+        </form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

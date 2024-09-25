@@ -1,0 +1,182 @@
+
+.search-box {
+    background-color: #071f2c;
+    display: flex;
+    align-items: center;
+    width: 600px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.search-input {
+    color: #FFFFFF;
+    background-color: #006494;
+    flex: 3;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.filter-select {
+    color: #FFFFFF;
+    background-color: #006494;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.results {
+    margin-top: 10px;
+}
+
+.search-button {
+    background: #003554;
+    color: #FFFFFF;
+    border: none;
+    padding-top: unset;
+    margin-left: 10px;
+    height: 95%;
+    border-radius: 3px;
+}
+
+.HomeViewSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center content */
+    justify-content: center; /* Vertically center content */
+    width: 900px; /* Set width to 100% to adapt to viewport */
+    height: 400px; /* Set a percentage of viewport height */
+    text-align: center; /* Horizontally center text inside the section */
+    margin-left: 30px;
+}
+
+.section_title {
+    font-size: 26px;
+    color: #FFFFFF;
+    margin-bottom: 10px; /* Add margin to separate the title from the image frame */
+    text-align: left;
+    text-decoration: underline;
+    align-self: flex-start; /* Align to the very left */
+}
+
+.image-frame {
+    width: 100%; /* Set a percentage of the viewport width */
+    height: 70%; /* Set a percentage of the viewport height */
+    border: 1px solid #000;
+    overflow: hidden;
+    background-color: #051923;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    position: relative; /* Relative positioning for child elements */
+}
+
+
+
+.image-container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    transition: transform 0.6s;
+    align-items: center; /* Vertically center content */
+}
+
+.image {
+    width: 180px;
+    height: 222px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 100, 148, 0.5);
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 45px;
+    border: 1px solid #000;
+    transition: transform 3s ease;
+}
+
+.prev-button2, .next-button2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 100, 148, 0.5);
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 45px;
+    border: 1px solid #000;
+    transition: transform 3s ease;
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: rgba(0, 100, 148, 0.9);
+}
+.prev-button2:hover, .next-button2:hover {
+    background-color: rgba(0, 100, 148, 0.9);
+}
+
+.prev-button {
+    left: 0;
+}
+
+.next-button {
+    right: 0;
+}
+
+.prev-button2 {
+    left: 0;
+}
+
+.next-button2 {
+    right: 0;
+}
+
+.HomeViewSection2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center content */
+    justify-content: center; /* Vertically center content */
+    width: 900px; /* Set width to 100% to adapt to viewport */
+    height: 500px; /* Set a percentage of viewport height */
+    padding-top: 40px;
+    text-align: center; /* Horizontally center text inside the section */
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+.review-frame {
+    width: 100%; /* Set a percentage of the viewport width */
+    height: 90%; /* Set a percentage of the viewport height */
+    border: 1px solid #000;
+    overflow: hidden;
+    background-color: #051923;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    position: relative; /* Relative positioning for child elements */
+}
+
+.review-container {
+    width: 100%; /* 100% width to fit one image */
+    height: 100%;
+    display: flex;
+    transition: transform 0.3s;
+    align-items: center; /* Vertically center content */
+}
+
+.pfp-bar{
+    height: 36px;
+    width: 36px;
+    margin-top: 36px;
+    position: absolute;
+    right: 100px;
+    top: -21px;
+}

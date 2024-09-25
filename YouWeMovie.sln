@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouWeMovie", "YouWeMovie.csproj", "{7F8F4364-69BE-44BA-9EF1-D036E2D2F633}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F8F4364-69BE-44BA-9EF1-D036E2D2F633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8F4364-69BE-44BA-9EF1-D036E2D2F633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8F4364-69BE-44BA-9EF1-D036E2D2F633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8F4364-69BE-44BA-9EF1-D036E2D2F633}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

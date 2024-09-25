@@ -1,0 +1,114 @@
+﻿@page
+@model YouWeMovie.Areas.Identity.Pages.Account.RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+<!-- here the link for the registre.cshtml to the register.cs. the css make the page clear and readable -->
+<link rel="stylesheet" href="css/Register.css" asp-append-version="true" />
+
+<h1>@ViewData["Title"]</h1>
+    
+<div class="container">
+    <form class="row" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+
+        <!-- This section is for Upload Picture -->
+        <div class="col-md-4 picture-upload">
+        
+            <div class="Form-Group">
+                <!--This one is for circle Image for the uploading picture -->
+                <div class="image-preview-circle" id="imagePreviewCircle">
+                    <img src="~/Assets/Profile.png" alt="Profile Image" class="profile-image">
+                </div>
+
+                <!-- here is to upload the image inpute -->
+                <input asp-for="Input.Pic" type="file" id="imageInput" class="form-control-file" aria-required="true" accept="image/*" onchange="uploadImage()" style="display: none"/>
+                <span asp-validation-for="Input.Pic" class="text-danger"></span>
+
+
+                <!-- Her is the activate the file section function with the designated button for selection -->
+                <button type="button" class="upload-image-button" onclick="document.getElementById('imageInput').click()">Upload Image</button>
+            </div>
+        </div>
+    
+        <!-- Here alle content on the registration section from from the topped to the bottom  -->
+        <div class="col-md-4 registration-form">
+            
+            <div class="Form-Group">
+                <a>NickName</a>
+                <input asp-for="Input.NickName" class="form-control" aria-required="true" placeholder="" />
+                <span asp-validation-for="Input.NickName" class="text-danger"></span>
+            </div>
+            
+            <div class="Form-Group">
+                <a>Age</a>
+                <input asp-for="Input.Age" class="form-control" aria-required="true" placeholder="" 
+                       oninput="validateAge(this)" />
+                <span asp-validation-for="Input.Age" class="text-danger"></span>
+            </div>
+
+            <div class="Form-Group">
+                <a> Email</a>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="Form-Group">
+                <a>Password</a>
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="Form-Group">
+                <a>Confirm Password</a>
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button id="registerSubmit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function validateAge(input) {
+        var age = parseInt(input.value);
+    
+        if (isNaN(age) || age < 12 || age > 120) {
+            input.setCustomValidity("Please enter a valid age between 12 and 120.");
+        } else {
+            input.setCustomValidity("");
+        }
+    }
+    function uploadImage() {
+        const input = document.getElementById('imageInput');
+        const previewCircle = document.getElementById('imagePreviewCircle');
+        
+        console.log(input);
+    
+        // in this function, it will check if it is an image and if a file is selected.
+        if (input.files && input.files[0] && input.files[0].type.startsWith('image/')) {
+            const reader = new FileReader();
+    
+            reader.onload = function (e) {
+                const image = document.createElement('img');
+                image.src = e.target.result;
+                image.className = 'circular-image';
+                previewCircle.innerHTML = '';
+                previewCircle.appendChild(image);
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        } else {
+         
+            //Show an error message with a red color of the text. 
+          
+            previewCircle.innerHTML ='<p class= "error-message">  Please Select a Valid Image </p> ';
+           
+        }
+    }
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

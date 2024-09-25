@@ -1,0 +1,23 @@
+﻿
+body {
+    Margin-Top: 3cm; 
+}
+.nav  {
+    Background-Color: #FFFFFF;
+    Border-Radius: 5px; 
+    Padding: 10px; 
+    Position: absolute; 
+    Bottom: 10cm; 
+}
+
+
+.nav-item {
+    Margin-bottom: 5px; 
+}
+
+
+
+
+button:hover {
+    background-color:  #00A6FB;  /* Darker blue on hover */
+}

@@ -1,0 +1,13 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<<<<<<< HEAD
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=WWWROOT_005CREGISTER/@EntryIndexedValue">wwwroot\Register</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CREGISTER/@EntryIndexedValue">wwwroot\Register</s:String></wpf:ResourceDictionary>
+=======
+	
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=WWWROOT_005CPATH_005CTO_005CDEFAULT_002DPROFILE_002DPICTURE_002EJPG/@EntryIndexedValue">wwwroot\path\to\default-profile-picture.jpg</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=_002E_002E_005C_002E_002E_005C_002E_002E_005CWWWROOT_005CASSETS/@EntryIndexedValue">..\..\..\wwwroot\Assets</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=WWWROOT_005CASSETS_005CDEFAULT_005FPROFILE_002EPNG/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CASSETS_005CDEFAULT_005FPROFILE_002EPNG/@EntryIndexedValue">wwwroot\Assets\default_profile.png</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CPATH_005CTO_005CDEFAULT_002DPROFILE_002DPICTURE_002EJPG/@EntryIndexedValue">wwwroot\path\to\default-profile-picture.jpg</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=_002E_002E_005C_002E_002E_005C_002E_002E_005CWWWROOT_005CASSETS/@EntryIndexedValue">..\..\..\wwwroot\Assets</s:String></wpf:ResourceDictionary>
+>>>>>>> main

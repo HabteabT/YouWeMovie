@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - YouWeMovie</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/Search.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Home.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Reviews.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Register.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Reviews.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/YouWeMovie.styles.css" asp-append-version="true"/>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar font-blue menucolor navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="openbtn" onclick="openNav()">☰</button>
+                
+                    <div id="mySidebar" class="sidebar">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a asp-area="" asp-controller="Content" asp-action="Index" asp-route-IsSeries="false" id="moviesButton" >Movies</a>
+                        <a asp-area="" asp-controller="Content" asp-action="Index" asp-route-IsSeries="true" id="seriesButton" >Series</a>
+                        <a asp-area="" asp-controller="Reviews" asp-action="Index">Reviews</a>
+                        <a asp-area="" asp-controller="AboutUs" asp-action="Index">About us</a>
+                    </div>
+                <center><a asp-area="" asp-controller="Home" asp-action="Index"><img class="img" src="~/Assets/logopng.png"></a></center>
+                
+                <div class="collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                    <partial name="_LoginPartial"/>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+<footer class="border-top menucolor footer text-muted">
+    <div class="container">
+        &copy; YWM 
+    </div>
+</footer>
+
+  <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Review.js" asp-append-version="true"></script>
+<script src="~/js/ScrollButtons.js" asp-append-version="true"></script>
+<script src="~/js/SearchBar.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

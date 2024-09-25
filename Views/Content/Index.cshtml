@@ -1,0 +1,72 @@
+@using Microsoft.AspNetCore.Identity
+@model List<YouWeMovie.Models.Content>
+@inject UserManager<ApplicationUser> Um
+@using YouWeMovie.Data
+@inject ApplicationDbContext _context
+
+@{
+    ViewBag.Title = "Content";
+    Layout = "_Layout";
+}
+@*Søkebaren som en partial view*@
+<partial name="_SearchPartial"/>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+<link rel="stylesheet" href="css/Content.css" asp-append-version="true"/>
+<link rel="stylesheet" href="css/Home.css" asp-append-version="true"/>
+@* viktig ar jquery script lastes inn før Movies scriptet *@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/addButton.js" asp-append-version="true"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="js/Content.js"></script>
+
+@{
+    //sjekker om URL inneholder IsSeries
+    var isSeries = Context.Request.Query["IsSeries"];
+}
+
+@*Er siden om filmer eller serier*@
+<center>
+    <form method="post" data-is-seris="@isSeries">
+        <div class="container mt-5">
+            <div class="Contentcontainer row">
+                <div class="col-sm-4 col-md-4"></div>
+                <div class="col-sm-2 col-md-2">
+                    @*Klassen referer til filter select og filter type*@
+                    <select class="filter-select filter-type">
+                        @*De forskjellige verdiene til filter typen*@
+                        <option value="Highest">Highest ratings</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-md-2">
+                    @*Klassen referer til filter select og sjanger typen*@
+                    <select class="filter-select genre-type">
+                        @*De forskjellige sjangerene *@
+                        <option value="All">All</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Action">Action</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Western">Western</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Comedy">Comedy</option>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-md-4"></div>
+                
+                <div class="movie-container">
+                    @*Alle filmer/serier i Content listen blir sent inn i partial viewen*@
+                    @await Html.PartialAsync("_ContentInfoPartial", Model)
+                    @*På denne måten kan vi holde programmet dynamisk til enhver tid*@
+                </div>
+            </div>
+        </div>
+    </form>
+</center>
